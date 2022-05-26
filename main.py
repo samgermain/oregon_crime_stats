@@ -5,10 +5,10 @@ import matplotlib.pyplot as plt
 
 pd.set_option('display.max_rows', None)
 
-start_before_string = '2020-01-01T01:00:00.000000'
-end_before_string = '2020-12-31T01:00:00.000000'
-start_after_string = '2021-05-25T01:00:00.000000'
-end_after_string = '2022-05-24T01:00:00.000000'
+start_before_string = '2020-08-01T01:00:00.000000'
+end_before_string = '2021-01-31T01:00:00.000000'
+start_after_string = '2021-02-01T01:00:00.000000'
+end_after_string = '2021-08-01T01:00:00.000000'
 
 start_before = datetime.fromisoformat(start_before_string)
 end_before = datetime.fromisoformat(end_before_string)
@@ -39,11 +39,11 @@ fig, ax = plt.subplots()
 offences_before_count = offences_before['NIBRS Crime Description'].value_counts()
 offences_after_count = offences_after['NIBRS Crime Description'].value_counts()
 before_title = (
-    'Before (' +
+    'Before Decriminalization(' +
     f'{start_before_string.split("T")[0]} - {end_before_string.split("T")[0]})'
 )
 after_title = (
-    'After (' +
+    'After Decriminalization(' +
     f'{start_after_string.split("T")[0]} - {end_after_string.split("T")[0]})'
 )
 
@@ -61,6 +61,7 @@ def plot_chart(df, ax, fig, yticks):
         ylabel='Incidents Recorded',
         yticks=yticks,
         fontsize=7,
+        title='Oregon Crime Statistics 6 Months Before and After Drug Decriminalization'
     )
     ax.set_axisbelow(True)
     ax.grid(color='lightgray', linestyle='dashed')
@@ -68,7 +69,7 @@ def plot_chart(df, ax, fig, yticks):
     plt.show()
 
 
-plot_chart(high_amount, ax, fig, range(0, 35000, 2000))
+plot_chart(high_amount, ax, fig, range(0, 20000, 1000))
 # plot_chart(low_amount, ax, fig, range(0, 1000, 50))
 # offences_ = filter(
 #     offences,
