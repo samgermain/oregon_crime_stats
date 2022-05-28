@@ -15,10 +15,11 @@ end_before = datetime.fromisoformat(end_before_string)
 start_after = datetime.fromisoformat(start_after_string)
 end_after = datetime.fromisoformat(end_after_string)
 
-arrests = pd.read_csv('OpenData-Arrests-All.csv', parse_dates=['Date'])
-offences = pd.read_csv('OpenData-Offenses-All.csv', parse_dates=['IncidentDate'])
-victims = pd.read_csv('OpenData-Victims-All.csv', parse_dates=['IncidentDate'])
-# leoka = pd.read_csv('OpenData-LEOKA-All.csv', parse_dates=['Date'])
+# Data retrieved from https://www.oregon.gov/osp/pages/uniform-crime-reporting-data.aspx
+arrests = pd.read_csv('data/OpenData-Arrests-All.csv', parse_dates=['Date'])
+offences = pd.read_csv('data/OpenData-Offenses-All.csv', parse_dates=['IncidentDate'])
+victims = pd.read_csv('data/OpenData-Victims-All.csv', parse_dates=['IncidentDate'])
+# leoka = pd.read_csv('data/OpenData-LEOKA-All.csv', parse_dates=['Date'])
 
 
 def filter(df, start, end, date_key='IncidentDate'):
